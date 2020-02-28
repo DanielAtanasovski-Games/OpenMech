@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/LobbyPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Lobby.cs" type="Script" id=2]
+[ext_resource path="res://Levels/MLevel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Network/MMech.tscn" type="PackedScene" id=4]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+LobbyPlayerScene = ExtResource( 1 )
+playerListContainerDir = "Panel/Seperation/PlayerList"
+MLevelScene = ExtResource( 3 )
+MMechScene = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 312.0
+margin_top = 50.0
+margin_right = -312.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seperation" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerList" type="VBoxContainer" parent="Panel/Seperation"]
+margin_right = 399.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 0, 400 )
+custom_constants/separation = 0
+
+[node name="InfoPanel" type="Panel" parent="Panel/Seperation"]
+margin_top = 400.0
+margin_right = 399.0
+margin_bottom = 500.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="Panel/Seperation/InfoPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.5
+margin_top = -10.0
+margin_right = 20.5
+margin_bottom = 10.0
+disabled = true
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}

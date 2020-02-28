@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Server.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/RemotePlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Lobby.tscn" type="PackedScene" id=3]
+
+[node name="Server" type="Node"]
+script = ExtResource( 1 )
+LobbyScene = ExtResource( 3 )
+RemoteClient = ExtResource( 2 )

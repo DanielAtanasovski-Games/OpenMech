@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Lobby.cs" type="Script" id=1]
+[ext_resource path="res://Mechs/MMech.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/MLevel.tscn" type="PackedScene" id=3]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+MLevelScene = ExtResource( 3 )
+MMechScene = ExtResource( 2 )
+
+[node name="PlayerList" type="Label" parent="."]
+margin_right = 165.0
+margin_bottom = 162.0
