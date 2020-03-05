@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Mechs/MMech.cs" type="Script" id=1]
 [ext_resource path="res://Data/Tracks/StandardTrack.png" type="Texture" id=2]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -23,7 +24,9 @@ animations = [ {
 extents = Vector2( 28, 32 )
 
 [node name="MMech" type="KinematicBody2D"]
+collision_mask = 1023
 script = ExtResource( 1 )
+Bullet = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708

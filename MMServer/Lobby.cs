@@ -31,6 +31,7 @@ public class Lobby : Control
             MMech mech = (MMech)MMechScene.Instance();
             level.GetNode("Players").AddChild(mech);
             mech.Name = serverInstance.PlayerList[i].ID.ToString();
+            mech.CollisionLayer = (uint) i + 1;
         }
         level.AssignSpawns();
     }

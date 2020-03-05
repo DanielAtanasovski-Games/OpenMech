@@ -59,6 +59,7 @@
     <Compile Include="mechs\tracks\Track.cs" />
     <Compile Include="mechs\weapons\Bullet.cs" />
     <Compile Include="mechs\weapons\Weapon.cs" />
+    <Compile Include="Network\MBullet.cs" />
     <Compile Include="Network\MMech.cs" />
     <Compile Include="Network\NetworkJoin.cs" />
     <Compile Include="Network\Player.cs" />

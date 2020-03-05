@@ -53,6 +53,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
     <Compile Include="Lobby.cs" />
     <Compile Include="Mechs\MMech.cs" />
     <Compile Include="Mechs\Tracks\ITrack.cs" />
