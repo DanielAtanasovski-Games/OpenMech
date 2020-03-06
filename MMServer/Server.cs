@@ -74,6 +74,8 @@ public class Server : Node
             // Change to a different Host
 
         // TODO: WHAT IF INGAME
+        MMech m = (MMech)LobbyInstance.LevelInstance.GetNode("Players/"+ p.ID.ToString());
+        m.Destroy();
         // Inform Players of Client Disconnect
         for (int i = 0; i < PlayerList.Count; i++)
         {

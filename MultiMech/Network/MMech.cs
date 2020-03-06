@@ -53,6 +53,11 @@ public class MMech : Node2D
         bullet.Rotation = rot;
     }
 
+    [Remote]
+    private void Destroy() {
+        QueueFree();
+    }
+
     public override void _Input(InputEvent e)
     {
         if (Name != GetTree().NetworkPeer.GetUniqueId().ToString())

@@ -12,6 +12,9 @@ public class Bullet : KinematicBody2D
 
     public MMech MechParent {get; set;}
 
+    private Timer lifetimeTimer;
+    private float lifetime = 3F;
+
     public override void _Ready() {
         Godot.GD.Print(Name + GetPath());
     }
@@ -22,6 +25,11 @@ public class Bullet : KinematicBody2D
         GlobalPosition = pos;
         _velocity = new Vector2(Speed, 0).Rotated(Rotation);
         Godot.GD.Print(Position + " Spawned");
+
+        lifetimeTimer = new Timer();
+        AddChild(lifetimeTimer);
+        lifetimeTimer.Start(lifetime);
+        lifetimeTimer.Connect("timeout", this, nameof(Destroy));
 
         lastRot = GlobalRotation;
         lastPos = GlobalPosition;
@@ -61,9 +69,9 @@ public class Bullet : KinematicBody2D
         Rpc("SetRot", GlobalRotation);
     }
 
-    public void OnVisibilityNotifier2DScreenExited()
+    public void Destroy()
     {
-        // TODO: Gonna change this to lifetime
+        // TODO: Gonna change this to lifetime as this notification doesnt work
         MechParent.RemoveBullet(this);
         Rpc("Destroy");
         QueueFree();

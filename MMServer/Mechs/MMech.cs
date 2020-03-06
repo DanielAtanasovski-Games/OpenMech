@@ -29,7 +29,7 @@ public class MMech : KinematicBody2D
     // TODO: Replace this with json of stats
     private int ForwardSpeed = 100;
     private int RotationSpeed = 5;
-    private float AttackSpeed = 1.5F;
+    private float AttackSpeed = 1F;
 
     private const int MAX_BULLETS = 50;
 
@@ -118,9 +118,23 @@ public class MMech : KinematicBody2D
     public void RemoveBullet(Bullet bullet) {
         for (int i = 0; i < MAX_BULLETS; i++)
         {
+            if (bullets[i] == null)
+                continue;
+
             if (bullets[i].Name.Equals(bullet.Name)){
                 bullets[i] = null;
+                return;
             }
+        }
+    }
+
+    public void DestroyBullets() {
+        for (int i = 0; i < MAX_BULLETS; i++)
+        {
+            if (bullets[i] == null)
+                continue;
+
+            bullets[i].Destroy();
         }
     }
 
@@ -144,5 +158,11 @@ public class MMech : KinematicBody2D
     public void SetRot(float rot) {
         Rotation = rot;
         Rpc("SetRot", rot);
+    }
+
+    public void Destroy() {
+        Rpc("Destroy");
+        DestroyBullets();
+        QueueFree();
     }
 }

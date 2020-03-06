@@ -11,6 +11,8 @@ public class Lobby : Control
     [Export]
     public PackedScene MMechScene;
 
+    public MLevel LevelInstance;
+
     // Start Game
     [Remote]
     public void OnStartGame()
@@ -23,17 +25,17 @@ public class Lobby : Control
     public void LoadGame()
     {
         Godot.GD.Print("LoadGame");
-        MLevel level = (MLevel)MLevelScene.Instance();
-        GetTree().Root.AddChild(level);
-        level.Players = new List<Player>(serverInstance.PlayerList);
+        LevelInstance = (MLevel)MLevelScene.Instance();
+        GetTree().Root.AddChild(LevelInstance);
+        LevelInstance.Players = new List<Player>(serverInstance.PlayerList);
         for (int i = 0; i < serverInstance.PlayerList.Count; i++)
         {
             MMech mech = (MMech)MMechScene.Instance();
-            level.GetNode("Players").AddChild(mech);
+            LevelInstance.GetNode("Players").AddChild(mech);
             mech.Name = serverInstance.PlayerList[i].ID.ToString();
             mech.CollisionLayer = (uint) i + 1;
         }
-        level.AssignSpawns();
+        LevelInstance.AssignSpawns();
     }
 
 
