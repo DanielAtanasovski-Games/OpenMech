@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="MultiMechCreator"
+run/main_scene="res://Creator.tscn"
 config/icon="res://icon.png"
 
 [rendering]
